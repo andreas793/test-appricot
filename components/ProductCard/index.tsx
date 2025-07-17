@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface ProductCardProps {
     product: any;
 }
@@ -11,12 +13,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 className="w-full h-48 object-cover mb-4"
             />
             <h3 className="text-lg font-bold">
-                <a
+                <Link
                     href={`/products/${product?.id}`}
                     className="text-blue-500 hover:underline"
                 >
                     {product?.title}
-                </a>
+                </Link>
             </h3>
             <p className="text-gray-600 font-bold">${product?.price}</p>
         </div>

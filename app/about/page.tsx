@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { format } from 'date-fns';
+import Link from "next/link";
 
 interface Props {
     generationTime: string;
@@ -17,12 +18,12 @@ const About: FC<Props> = ({ generationTime }) =>  (
                 <p className="text-gray-600">{generationTime}</p>
             </div>
             <div className="mt-8">
-                <a
+                <Link
                     href="/"
                     className="text-blue-500 hover:underline"
                 >
                     Вернуться к списку продуктов
-                </a>
+                </Link>
             </div>
         </div>
     );

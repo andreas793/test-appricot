@@ -1,9 +1,22 @@
 import Link from "next/link";
 import {notFound} from "next/navigation";
+import {FC} from "react";
+
+export interface Product {
+    id: string;
+    title: string;
+    images: string;
+    price: number;
+    description: string;
+}
+
+interface ProductPageProps {
+    params: Promise<{ id: string }>;
+}
 
 const url = 'https://api.escuelajs.co/api/v1/products/';
 
-const getProduct = async (id: string) => {
+const getProduct = async (id: string): Promise<Product> => {
     const res = await fetch(`${url}${id}`);
     if (!res.ok) {
         throw new Error('Failed to fetch a product...');
@@ -11,7 +24,7 @@ const getProduct = async (id: string) => {
     return res.json();
 }
 
-const ProductPage = async ({params}: { params: { id: string } }) => {
+const ProductPage: FC<ProductPageProps> = async ({params}) => {
     const {id} = await params;
     try {
         const data = await getProduct(id);

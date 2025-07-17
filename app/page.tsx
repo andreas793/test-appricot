@@ -6,9 +6,10 @@ import {
 } from 'react';
 import ProductList from '../components/ProductList';
 import Loading from '../components/Loading';
+import {Product} from "@/app/products/[id]/page";
 
 const Home: FC = () => {
-    const [products, setProducts] = useState<any[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
