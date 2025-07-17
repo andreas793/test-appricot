@@ -1,13 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
+import {Product} from "@/app/products/[id]/page";
+import {FC} from "react";
 
 interface ProductCardProps {
-    product: any;
+    product: Product;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: FC<ProductCardProps> = ({ product }) => {
     return (
         <div className="bg-white shadow p-4 rounded">
-            <img
+            <Image
                 src={product?.images}
                 alt={product?.title}
                 className="w-full h-48 object-cover mb-4"

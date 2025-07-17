@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {notFound} from "next/navigation";
 import {FC} from "react";
+import Image from 'next/image';
 
 export interface Product {
     id: string;
@@ -37,7 +38,7 @@ const ProductPage: FC<ProductPageProps> = async ({params}) => {
             <div className="container mx-auto p-4 mt-10">
                 <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
                 <div className="mb-4">
-                    <img
+                    <Image
                         src={data.images}
                         alt={data.title}
                         className="w-full h-64 object-cover"
@@ -55,7 +56,7 @@ const ProductPage: FC<ProductPageProps> = async ({params}) => {
                 </div>
             </div>
         );
-    } catch (error) {
+    } catch (_error) {
         return notFound();
     }
 };
