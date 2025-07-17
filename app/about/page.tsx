@@ -19,7 +19,7 @@ const About: FC<Props> = ({ generationTime }) =>  (
             </div>
             <div className="mt-8">
                 <Link
-                    href="/public"
+                    href="/"
                     className="text-blue-500 hover:underline"
                 >
                     Вернуться к списку продуктов
